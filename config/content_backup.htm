@@ -308,7 +308,289 @@ gdImageFilledEllipse(img, center_x, center_y, sun_radius * 1.2, sun_radius * 1.2
 gdImageFilledEllipse(img, center_x, center_y, sun_radius * 1.1, sun_radius * 1.1, white);
 }</pre>
 <p><br/><br/></p>
+<h1>w7</h1>
+<p><img alt="" height="267" src="/images/chinese_flag.png" width="400"/></p>
+<p><img alt="" height="200" src="/images/uk_flag.png" width="400"/></p>
+<p><img alt="" height="267" src="/images/japan_flag.png" width="400"/></p>
 <p></p>
+<h1>ANSIC</h1>
+<p>1.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">include &lt;stdio.h&gt;
+
+float temp_f;  /* 華氏度 */
+float temp_c;  /* 攝氏度 */
+char line_text[50]; /* 一行輸入 */
+
+int main() {
+    printf("輸入溫度（攝氏度）：");
+
+    if (fgets(line_text, sizeof(line_text), stdin) == NULL) {
+        // 處理錯誤（例如，打印錯誤消息或退出程序）。
+        fprintf(stderr, "讀取輸入時發生錯誤。\n");
+        return 1; // 返回非零值表示錯誤。
+    }
+
+    if (sscanf(line_text, "%f", &amp;temp_c) != 1) {
+        // 處理錯誤（例如，打印錯誤消息或退出程序）。
+        fprintf(stderr, "將輸入轉換為浮點數時發生錯誤。\n");
+        return 1; // 返回非零值表示錯誤。
+    }
+
+    temp_f = ((9.0 / 5.0) * temp_c) + 32.0;
+    printf("%f 度華氏。\n", temp_f);
+
+    return 0;
+}
+</pre>
+<p><img alt="" height="37" src="/images/test1.png" width="208"/></p>
+<p>2.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() {
+    float rec_width;         /* 宣告變數 'rec_width' 以儲存矩形的寬度 */
+    float rec_height;        /* 宣告變數 'rec_height' 以儲存矩形的高度 */
+    float rec_perimeter;     /* 宣告變數 'rec_perimeter' 以儲存周長（將要計算的值） */
+
+    // 提示使用者輸入矩形的高度。
+    printf("輸入矩形的高度：");
+    int heightScanResult = scanf("%f", &amp;rec_height);  // 從使用者處讀取 'rec_height' 的值。
+
+    // 提示使用者輸入矩形的寬度。
+    printf("輸入矩形的寬度：");
+    int widthScanResult = scanf("%f", &amp;rec_width);  // 從使用者處讀取 'rec_width' 的值。
+
+    // 使用公式計算矩形的周長：周長 = 2 * (寬度 + 高度)
+    rec_perimeter = 2.0 * (rec_height + rec_width);
+
+    // 印出計算得到的矩形周長。
+    printf("矩形的周長為：%f\n", rec_perimeter);
+
+    return 0;  // 表示程式執行成功。
+}
+</pre>
+<p><img alt="" height="55" src="/images/test3.png" width="203"/></p>
+<p>3.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() {
+    int chk_year;
+
+    printf("輸入一個年份：");
+    if (scanf("%d", &amp;chk_year) != 1) {
+        fprintf(stderr, "錯誤：輸入無效。請輸入有效的年份。\n");
+        return 1; // 表示錯誤
+    }
+
+    if ((chk_year % 400) == 0)
+        printf("%d年是閏年。\n", chk_year);
+    else if ((chk_year % 100) == 0)
+        printf("%d年不是閏年。\n", chk_year);
+    else if ((chk_year % 4) == 0)
+        printf("%d年是閏年。\n", chk_year);
+    else
+        printf("%d年不是閏年。\n", chk_year);
+
+    return 0; // 表示成功執行
+}
+</pre>
+<p></p>
+<p><img alt="" height="36" src="/images/test4.png" width="154"/></p>
+<p>4.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() {
+    int num1, rem1;
+
+    printf("輸入一個整數：");
+
+    // 使用 scanf 函數讀取整數，同時檢查返回值確保成功讀取
+    if (scanf("%d", &amp;num1) != 1) {
+        fprintf(stderr, "錯誤：輸入無效。請輸入有效的整數。\n");
+        return 1; // 表示錯誤
+    }
+
+    // 計算整數除以2的餘數
+    rem1 = num1 % 2;
+
+    // 根據餘數判斷奇偶性並輸出結果
+    if (rem1 == 0)
+        printf("%d 是偶數。\n", num1);
+    else
+        printf("%d 是奇數。\n", num1);
+
+    return 0; // 表示成功執行
+}
+</pre>
+<p><img alt="" height="33" src="/images/test5.png" width="156"/></p>
+<p>5.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() {
+    int j, sum = 0;
+
+    printf("前10個自然數是：\n");
+
+    for (j = 1; j &lt;= 10; j++) {
+        sum = sum + j;
+        printf("%d ", j);
+    }
+
+    printf("\n總和為：%d\n", sum);
+
+    return 0;
+}
+</pre>
+<p></p>
+<p><img alt="" height="54" src="/images/test6.png" width="196"/></p>
+<p>6.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() {
+    int j, i, n;
+
+    printf("輸入要生成的乘法表的數字範圍（從1開始）：");
+
+    // 使用scanf函數讀取用戶輸入，同時檢查返回值確保成功讀取
+    if (scanf("%d", &amp;n) != 1) {
+        fprintf(stderr, "錯誤：輸入無效。請輸入一個有效的數字。\n");
+        return 1; // 表示錯誤
+    }
+
+    printf("從1到%d的乘法表\n", n);
+
+    for (i = 1; i &lt;= 10; i++) {
+        for (j = 1; j &lt;= n; j++) {
+            printf("%dx%d = %d, ", j, i, i*j);
+        }
+        printf("\n");
+    }
+
+    return 0; // 表示成功執行
+}
+</pre>
+<p></p>
+<p><img alt="" height="195" src="/images/test7.png" width="498"/></p>
+<p>7.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+// 函數：計算一個數字的平方
+double square(double num) {
+    return (num * num);
+}
+
+int main() {
+    int num;
+    double n;
+
+    printf("\n\n 函數：找出任意數字的平方：\n");
+    printf("------------------------------------------------\n");
+
+    printf("輸入任意數字以求平方：");
+
+    // 使用scanf函數讀取用戶輸入，同時檢查返回值確保成功讀取
+    if (scanf("%d", &amp;num) != 1) {
+        fprintf(stderr, "錯誤：輸入無效。請輸入一個有效的數字。\n");
+        return 1; // 表示錯誤
+    }
+
+    n = square(num);
+
+    printf("%d的平方是：%.2f\n", num, n); 
+
+    return 0; // 表示成功執行
+}
+</pre>
+<p><img alt="" height="78" src="/images/test8.png" width="394"/></p>
+<p>8.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include&lt;stdio.h&gt;
+
+// 函數：交換兩個數字
+void swap(int *p, int *q) {
+    int tmp;
+    tmp = *p;   // tmp儲存n1的值
+    *p = *q;    // *p儲存*q的值，即n2的值
+    *q = tmp;   // *q儲存tmp的值，即n1的值
+}
+
+int main() {
+    int n1, n2;
+
+    printf("\n\n 函數：使用函數交換兩個數字：\n");
+    printf("------------------------------------------------\n");
+
+    printf("輸入第一個數字：");
+    // 使用scanf函數讀取用戶輸入，同時檢查返回值確保成功讀取
+    if (scanf("%d", &amp;n1) != 1) {
+        fprintf(stderr, "錯誤：輸入無效。請輸入一個有效的數字。\n");
+        return 1; // 表示錯誤
+    }
+
+    printf("輸入第二個數字：");
+    // 使用scanf函數讀取用戶輸入，同時檢查返回值確保成功讀取
+    if (scanf("%d", &amp;n2) != 1) {
+        fprintf(stderr, "錯誤：輸入無效。請輸入一個有效的數字。\n");
+        return 1; // 表示錯誤
+    }
+
+    printf("在交換之前：n1 = %d, n2 = %d ", n1, n2);
+    // 將兩個變數的地址傳遞給函數。
+    swap(&amp;n1, &amp;n2);
+    printf("\n在交換之後：n1 = %d, n2 = %d \n\n", n1, n2);
+
+    return 0;
+}
+</pre>
+<p><img alt="" height="112" src="/images/test9.png" width="416"/></p>
+<p>9.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;time.h&gt;
+#include &lt;stdio.h&gt;  
+#include &lt;stdlib.h&gt;
+
+int main(void)
+{
+    time_t cur_time;     // 定義時間變數
+    char* cur_t_string;  // 定義時間字串指標
+
+    cur_time = time(NULL);  // 獲取當前時間
+    if (cur_time == ((time_t)-1))
+    {
+        (void) fprintf(stderr, "無法獲取當前日期和時間。\n");
+        exit(EXIT_FAILURE);
+    }
+
+    cur_t_string = ctime(&amp;cur_time); // 將時間轉換為本地時間格式
+    if (cur_t_string == NULL)
+    {
+        (void) fprintf(stderr, "無法轉換當前日期和時間。\n");
+        exit(EXIT_FAILURE);
+    }
+
+    (void) printf("\n 現在的時間是：%s \n", cur_t_string);
+    exit(EXIT_SUCCESS);
+}
+</pre>
+<p><img alt="" height="41" src="/images/test10.png" width="344"/></p>
+<p>10.</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;time.h&gt;
+
+int main(void)
+{
+    time_t now;
+    time(&amp;now); // 獲取當前時間
+
+    struct tm beg_month;
+    beg_month = *localtime(&amp;now); // 獲取本地時間結構體
+    beg_month.tm_hour = 0;        // 將小時、分鐘、秒設置為0
+    beg_month.tm_min = 0;
+    beg_month.tm_sec = 0;
+    beg_month.tm_mday = 1;         // 將日設置為1，即本月初
+
+    double seconds = difftime(now, mktime(&amp;beg_month)); // 計算兩個時間之間的秒數差
+    printf("\n 距離本月初已經過了 %.f 秒。\n\n", seconds);
+    return 0;
+}
+</pre>
 <p></p><h1>Brython</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
